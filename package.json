@@ -1,0 +1,16 @@
+{
+  "name": "all-packages",
+  "version": "1.0.0",
+  "description": "A package that has all packages on npm as dependency",
+  "scripts": {
+    "build": "script/build",
+    "release": "script/release"
+  },
+  "author": "Stefan Buck",
+  "license": "MIT",
+  "devDependencies": {
+    "all-the-package-names": "^1.3382.0"
+  },
+  "dependencies": {
+  }
+}

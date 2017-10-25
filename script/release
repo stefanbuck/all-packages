@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+npm install --only=dev
+npm run build
+
+count=$(cat count)
+rm count
+
+git add package.json
+git config user.email "os@stefanbuck.com"
+git config user.name "Stefan Buck"
+git commit -m "Now with $count dependencies"
+npm version minor -m "bump minor to %s"
+npm publish
+git push origin master --follow-tags

@@ -1,0 +1,16 @@
+#!/usr/bin/env node
+
+const fs = require('fs')
+const path = require('path')
+const allPackages = require('all-the-package-names')
+const pkgFilename = path.join(__dirname, '../package.json')
+const pkg = require(pkgFilename)
+
+pkg.dependencies = {}
+
+allPackages.forEach(name => {
+    pkg.dependencies[name] = 'latest'
+})
+
+fs.writeFileSync(pkgFilename, JSON.stringify(pkg, null, 2))
+fs.writeFileSync('count', allPackages.length)
